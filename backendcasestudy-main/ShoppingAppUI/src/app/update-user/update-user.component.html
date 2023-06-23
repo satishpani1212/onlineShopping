@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div class="container center">
+        <form [formGroup]="pwdChangeForm" (ngSubmit)="onSubmit()">
+            <div><h2>Change Password</h2></div>
+            <div class="form-group">
+                <label for="password">New Password</label>
+                <input type="text" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">password is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="confPassword">Confirm Password</label>
+                <input type="confPassword" formControlName="confPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confPassword.errors }" />
+                <div *ngIf="submitted && f.confPassword.errors" class="invalid-feedback">
+                    <div *ngIf="f.confPassword.errors.required">Password is required</div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Change Password
+                </button>
+                &nbsp;&nbsp;&nbsp;&nbsp;<a routerLink="/home">Cancel</a>
+            </div>
+        </form>
+</div>

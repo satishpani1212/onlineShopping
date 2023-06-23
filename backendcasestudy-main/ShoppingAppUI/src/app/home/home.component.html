@@ -1,0 +1,54 @@
+<div><app-header></app-header></div>
+<div style="margin-top: 7%;">
+  <div class="row">
+    <div class="col-11" ><h2>List of Products ({{count}})</h2></div>
+    <div class="col-1" *ngIf="role=='Admin'"><a routerLink="product"><mat-icon>add_circle</mat-icon></a></div>
+  </div>
+    <div class="example-header">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search by Product Name">
+      </mat-form-field>
+    </div>
+    
+    <div class="example-container mat-elevation-z8">
+    
+      <mat-table [dataSource]="dataSource" matSort>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="Name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.productName}} </mat-cell>
+        </ng-container>
+    
+        <!-- Features Column -->
+        <ng-container matColumnDef="Features">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Features </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.features}} </mat-cell>
+        </ng-container>
+       
+        <!-- Status Column -->
+        <ng-container matColumnDef="Status">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.status}} </mat-cell>
+        </ng-container>
+    
+        <!-- Price Column -->
+        <ng-container matColumnDef="Price">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.price}} </mat-cell>
+        </ng-container>
+    
+        <!-- Actions Column --> 
+        <ng-container matColumnDef="Actions">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Actions </mat-header-cell>
+          <mat-cell *matCellDef="let row" > <a routerLink="editProduct" (click)="editUser(row)" style="cursor: pointer;"><mat-icon>edit</mat-icon></a></mat-cell>
+        </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+      </mat-table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>  
+</div>

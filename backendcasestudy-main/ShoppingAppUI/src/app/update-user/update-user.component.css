@@ -1,0 +1,9 @@
+.center{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    height: 300px;
+    padding-top: 10px;
+    box-shadow: 5px 5px 5px 5px grey;
+    margin-top: 8%;
+  }

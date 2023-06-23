@@ -1,0 +1,86 @@
+<div class="split left">
+    <div class="centered">
+        <h2>Welcome to <p class="logo">ABC</p></h2>
+    </div>
+</div>
+<div class="split right">
+    <div class="rightcentered">
+        <div class="container rightcentered2">
+        <h2>Register</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" formControlName="firstName" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" formControlName="lastName" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" minlength="4"/>
+                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="emailId">EmailId</label>
+                <input type="email" formControlName="emailId" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }" />
+                <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
+                    <div *ngIf="f.emailId.errors.required">EmailId is required</div>
+                    <div *ngIf="f.emailId.errors.email">EmailId must be valid</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="loginId">LoginId</label>
+                <input type="text" formControlName="loginId" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.loginId.errors }" />
+                <div *ngIf="submitted && f.loginId.errors" class="invalid-feedback">
+                    <div *ngIf="f.loginId.errors.required">loginId is required</div>
+                    <div *ngIf="f.loginId.errors.minlength">loginId should have atleast 4 characters</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                    <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" formControlName="confirmPassword" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                    <div *ngIf="f.confirmPassword.errors.required">Password is required</div>
+                    <div *ngIf="f.confirmPassword.errors.minlength">Password must be at least 8 characters</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contactNo">Contact Number</label>
+                <input type="number" formControlName="contactNo" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.contactNo.errors }" />
+                <div *ngIf="submitted && f.contactNo.errors" class="invalid-feedback">
+                    <div *ngIf="f.contactNo.errors.required">contactNo is required</div>
+                    <div *ngIf="f.contactNo.errors.pattern">contactNo must be 10 characters</div>
+                    
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Register
+                </button>
+                &nbsp;&nbsp;<button class="btn btn-primary" (click)="registerForm.reset()">Reset</button>
+                <a routerLink="/login" class="btn btn-link">Cancel</a>
+            </div>
+        </form>
+        <br>
+    </div>
+    </div>
+</div>

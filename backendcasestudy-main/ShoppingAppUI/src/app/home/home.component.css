@@ -1,0 +1,55 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+  }
+  
+  .example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .mat-header-row{
+    /* background-color: #9be3bfe0 !important; */
+    background-color: #d9e1e2 !important;
+    color: black !important;
+    min-height: 3vw;
+  }
+
+  
+  .mat-sort-header-button {
+    color: black !important;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+    background-color: whitesmoke;
+  }
+  
+  .mat-cell, .mat-footer-cell, .mat-header-cell {
+    
+    color: black;
+  }
+
+  .mat-cell{
+    max-height: fit-content !important;
+  }
+
+.mat-header-cell{
+  max-height: fit-content !important;
+}
+
+mat-footer-row, mat-header-row, mat-row {
+  border-color: #d9e1e2 ;
+}
+
+.mat-primary .mat-option.mat-selected {
+  color: white !important;
+}
+

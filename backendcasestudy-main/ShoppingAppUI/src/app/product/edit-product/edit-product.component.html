@@ -1,0 +1,31 @@
+<app-header></app-header>
+<div class="container" style="margin-top: 7%;">
+    <main class="col-12">
+  <h2 class="bd-title" id="content">Edit Product </h2>
+ 
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" style=" box-shadow: 5px 5px 5px 5px grey;padding:3%">
+  <div class="form-group">
+      <label>Product Name</label>
+      <input type="text" formControlName="productName" class="form-control" disabled />
+  </div>
+  <div class="form-group">
+      <label>Product Description</label>
+      <input type="text" formControlName="productDesc" class="form-control" disabled />
+  </div>
+  <div class="form-group">
+      <label>Price</label>
+      <input type="text" formControlName="price" class="form-control" disabled />
+  </div>
+  <div class="form-group">
+      <label>Features</label>
+      <input type="text" formControlName="features" class="form-control" disabled />
+  </div>
+  <div class="form-group">
+      <label>Status</label>
+      <input type="text" formControlName="status" class="form-control"  />
+  </div>
+  <br>
+  <button [disabled]="!(editForm.valid ||!editForm['isDirty']())" class="btn btn-primary">Update status to {{status}}</button>
+  &nbsp;&nbsp;&nbsp;<a routerLink="/home">cancel</a>
+  </form> 
+  </main></div>

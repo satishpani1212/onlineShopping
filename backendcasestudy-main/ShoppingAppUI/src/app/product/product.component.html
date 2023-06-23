@@ -1,0 +1,60 @@
+<app-header></app-header>
+<div class="container" style="margin-top: 7%;">
+    <h2>Add Product</h2>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" style=" box-shadow: 5px 5px 5px 5px grey;padding:3%">
+        <div class="form-group">
+            <label for="productName">Product Name</label>
+            <input type="text" formControlName="productName" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.productName.errors }" />
+            <div *ngIf="submitted && f.productName.errors" class="invalid-feedback">
+                <div *ngIf="f.productName.errors.required">product Name is required</div>
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label for="productDesc">Product Description</label>
+            <textarea type="text" formControlName="productDesc" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.productDesc.errors }" ></textarea>
+            <div *ngIf="submitted && f.productDesc.errors" class="invalid-feedback">
+                <div *ngIf="f.productDesc.errors.required">EmailId is required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" formControlName="price" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.price.errors }" />
+            <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                <div *ngIf="f.price.errors.required">Price is required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="features">Features</label>
+            <input type="text" formControlName="features" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.features.errors }" />
+            <div *ngIf="submitted && f.features.errors" class="invalid-feedback">
+                <div *ngIf="f.features.errors.required">Features are required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="status">Product Status</label>
+            <input type="text" formControlName="status" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.status.errors }" />
+            <div *ngIf="submitted && f.status.errors" class="invalid-feedback">
+                <div *ngIf="f.status.errors.required">Status is required</div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Add Product
+            </button>
+            &nbsp;&nbsp;<button class="btn btn-primary" (click)="productForm.reset()">Reset</button>
+            <a routerLink="/home" class="btn btn-link">Cancel</a>
+        </div>
+    </form>
+    <br>
+</div>
